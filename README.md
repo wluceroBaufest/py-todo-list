@@ -22,6 +22,22 @@ python -m uvicorn app.main:app --reload
 
 El servidor se levanta en `http://localhost:8000`.
 
+## Tests
+
+El proyecto incluye una suite completa de tests con pytest.
+
+Para ejecutar los tests:
+
+```bash
+pytest
+```
+
+Para ejecutar los tests con más detalles:
+
+```bash
+pytest -v
+```
+
 ## Endpoints
 
 | Método   | Ruta            | Descripción                                      |
