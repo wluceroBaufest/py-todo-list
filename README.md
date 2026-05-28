@@ -31,6 +31,11 @@ El servidor se levanta en `http://localhost:8000`.
 | `GET`    | `/todos/{id}`   | Obtener un todo por ID                           |
 | `PUT`    | `/todos/{id}`   | Actualizar un todo                               |
 | `DELETE` | `/todos/{id}`   | Eliminar un todo                                 |
+| `POST`   | `/todos/{id}/subtasks/` | Crear una subtarea para un todo            |
+| `GET`    | `/todos/{id}/subtasks/` | Listar subtareas (filtro opcional `?completed=true`) |
+| `GET`    | `/todos/{id}/subtasks/{subtask_id}` | Obtener una subtarea por ID     |
+| `PUT`    | `/todos/{id}/subtasks/{subtask_id}` | Actualizar una subtarea          |
+| `DELETE` | `/todos/{id}/subtasks/{subtask_id}` | Eliminar una subtarea            |
 
 ## Ejemplos
 
@@ -60,4 +65,18 @@ Eliminar un todo:
 
 ```bash
 curl -X DELETE http://localhost:8000/todos/1
+```
+
+Crear una subtarea:
+
+```bash
+curl -X POST http://localhost:8000/todos/1/subtasks/ \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Ir al supermercado", "description": "Antes de las 18:00"}'
+```
+
+Listar subtareas:
+
+```bash
+curl http://localhost:8000/todos/1/subtasks/
 ```
