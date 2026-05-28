@@ -23,3 +23,26 @@ class TodoResponse(BaseModel):
     updated_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class SubTaskCreate(BaseModel):
+    title: str
+    description: str | None = None
+
+
+class SubTaskUpdate(BaseModel):
+    title: str | None = None
+    description: str | None = None
+    completed: bool | None = None
+
+
+class SubTaskResponse(BaseModel):
+    id: int
+    todo_id: int
+    title: str
+    description: str | None
+    completed: bool
+    created_at: datetime
+    updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
